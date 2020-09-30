@@ -1,28 +1,37 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container pt-3">
+    <div class="row pt-3">
+      <div class="col-2"></div>
+      <div class="col">
+        <Navbar v-bind:name="appName" />
+      </div>
+      <div class="col-2"></div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-2"></div>
+      <div class="col">
+        <div class="container border p-3">
+          <router-view></router-view>
+        </div>
+      </div>
+      <div class="col-2"></div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from "./components/Navbar";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: { Navbar },
+  data() {
+    return {
+      appName: "CustomUserApp",
+      appContents: "Hello World",
+    };
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
